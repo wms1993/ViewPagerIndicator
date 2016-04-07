@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ViewPagerIndicator">
+        <attr name="tab_visible_count" format="integer"/>
+        <attr name="tab_unselected_textcolor" format="color"/>
+        <attr name="tab_selected_textcolor" format="color"/>
+        <attr name="tab_unselected_textsize" format="dimension"/>
+        <attr name="tab_selected_textsize" format="dimension"/>
+    </declare-styleable>
+</resources>
