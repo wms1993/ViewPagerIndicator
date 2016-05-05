@@ -6,15 +6,26 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.wms.indicator.view.ViewPagerIndicator
-        android:id="@+id/indicator"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#80000000"
-        wms:tab_selected_textcolor="#fff"
-        wms:tab_selected_textsize="16sp"
-        wms:tab_unselected_textcolor="#55000000"
-        wms:tab_visible_count="3"/>
+    <FrameLayout android:layout_width="match_parent"
+                 android:layout_height="wrap_content">
+        <com.wms.indicator.view.ViewPagerIndicator
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginRight="20dp"
+            android:background="#80000000"
+            wms:tab_right_margin="20dp"
+            wms:tab_selected_textcolor="#fff"
+            wms:tab_selected_textsize="16sp"
+            wms:tab_unselected_textcolor="#55000000"
+            wms:tab_visible_count="3"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="#00f000"
+            android:src="@drawable/arrow"/>
+    </FrameLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"

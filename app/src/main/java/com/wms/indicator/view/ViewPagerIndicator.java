@@ -97,6 +97,14 @@ public class ViewPagerIndicator extends LinearLayout {
      * 选中状态字体大小 （单位是sp）,默认情况下和正常状态下字体大小一致
      */
     private float mSelectedTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 14, getResources().getDisplayMetrics());
+    /**
+     * LinearLayout右边距
+     */
+    private float mRightMargin;
+    /**
+     * LinearLayout左边距
+     */
+    private float mLeftMargin;
 
     public ViewPagerIndicator(Context context) {
         this(context, null);
@@ -115,6 +123,8 @@ public class ViewPagerIndicator extends LinearLayout {
         mSelectedColor = array.getColor(R.styleable.ViewPagerIndicator_tab_selected_textcolor, DEFAULT_SELECTED_COLOR);
         mUnselectedTextSize = array.getDimension(R.styleable.ViewPagerIndicator_tab_unselected_textsize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 14, getResources().getDisplayMetrics()));
         mSelectedTextSize = array.getDimension(R.styleable.ViewPagerIndicator_tab_selected_textsize, mUnselectedTextSize);
+        mLeftMargin = array.getDimension(R.styleable.ViewPagerIndicator_tab_left_margin, 0);
+        mRightMargin = array.getDimension(R.styleable.ViewPagerIndicator_tab_right_margin, 0);
         array.recycle();
 
         init();
@@ -157,7 +167,8 @@ public class ViewPagerIndicator extends LinearLayout {
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mUnselectedTextSize);
         textView.setTextColor(mUnselectedColor);
         textView.setGravity(Gravity.CENTER);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(getScreenWidth() / mVisibleTabCount, ViewGroup.LayoutParams.MATCH_PARENT);
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams((int) ((getScreenWidth() - mRightMargin - mLeftMargin) / mVisibleTabCount), ViewGroup.LayoutParams.MATCH_PARENT);
         textView.setLayoutParams(params);
 
         return textView;
@@ -260,6 +271,7 @@ public class ViewPagerIndicator extends LinearLayout {
      * @param titles
      */
     public void setTitles(String[] titles) {
+
         if (titles != null && titles.length != 0) {
             mTitles = titles;
         }

@@ -6,5 +6,7 @@
         <attr name="tab_selected_textcolor" format="color"/>
         <attr name="tab_unselected_textsize" format="dimension"/>
         <attr name="tab_selected_textsize" format="dimension"/>
+        <attr name="tab_left_margin" format="dimension"/>
+        <attr name="tab_right_margin" format="dimension"/>
     </declare-styleable>
 </resources>
